@@ -1,12 +1,15 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import "express-async-errors";
 import dotenv from "dotenv";
+import moviesRouter from "@/routers/moviesRouter";
+import errorHandler from "@/middlewares/errorHandler";
+
 dotenv.config();
 
 const app = express();
+app.use(express.json());
+app.use(moviesRouter);
+app.use(errorHandler);
 
-app.get("/health", (req: Request, res: Response) => {
-  res.status(200).send("I'm ok");
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log("Server is up and running"));
+const port = process.env.PORT || 5002;
+app.listen(port, () => console.log(`Server is up and running on port ${port}`));
