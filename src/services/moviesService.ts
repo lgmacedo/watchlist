@@ -1,5 +1,5 @@
 import * as moviesRepository from "@/repositories/moviesRepository";
-import noMoviesFound from "@/errors/NoMoviesFound";
+import noMoviesFound from "@/errors/noMoviesFound";
 import { InsertMovie, MovieUpdate } from "@/protocols/Movie";
 import idNotValid from "@/errors/idNotValid";
 import movieNotFound from "../errors/movieNotFound";
